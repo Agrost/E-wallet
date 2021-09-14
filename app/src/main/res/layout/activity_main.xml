@@ -3,23 +3,245 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    style="@style/ThemeBackgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <include
-        android:id="@+id/app_bar_main"
-        layout="@layout/app_bar_main"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_content_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:defaultNavHost="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="208dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        app:headerLayout="@layout/nav_header_main">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/ThemeBackgroundColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/NavHeaderBackgroundColor"
+                android:layout_width="200dp"
+                android:layout_height="104dp"
+                android:background="@drawable/rounded_corners"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                app:cardBackgroundColor="@color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/avatar_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/nav_header_desc"
+                    android:src="@drawable/ic_avatar_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/nav_header_desc"
+                    android:src="@drawable/ic_avatar_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/avatar_background"
+                    app:layout_constraintEnd_toEndOf="@+id/avatar_background"
+                    app:layout_constraintStart_toStartOf="@+id/avatar_background"
+                    app:layout_constraintTop_toTopOf="@+id/avatar_background" />
+
+                <TextView
+                    android:id="@+id/person_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/transparent"
+                    android:text="@string/name"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/avatar_background"
+                    app:layout_constraintTop_toTopOf="@id/avatar_background" />
+
+                <TextView
+                    android:id="@+id/person_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/transparent"
+                    android:paddingTop="@dimen/nav_header_vertical_spacing"
+                    android:text="@string/city"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toEndOf="@id/avatar_background"
+                    app:layout_constraintTop_toBottomOf="@id/person_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_selected_tab"
+                android:contentDescription="@string/selected_tab"
+                app:layout_constraintBottom_toBottomOf="@id/tab_home"
+                app:layout_constraintStart_toStartOf="@+id/tab_home"
+                app:layout_constraintTop_toTopOf="@id/tab_home" />
+
+            <TextView
+                android:id="@+id/tab_home"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/home"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/horizontal_tab_guideline" />
+
+            <TextView
+                android:id="@+id/tab_profile"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/profile"
+
+                app:layout_constraintTop_toBottomOf="@+id/tab_home" />
+
+            <TextView
+                android:id="@+id/tab_accounts"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/accounts"
+                app:layout_constraintTop_toBottomOf="@+id/tab_profile" />
+
+            <TextView
+                android:id="@+id/tab_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/transactions"
+                app:layout_constraintTop_toBottomOf="@+id/tab_accounts" />
+
+            <TextView
+                android:id="@+id/tab_stats"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/stats"
+                app:layout_constraintTop_toBottomOf="@+id/tab_transactions" />
+
+            <TextView
+                android:id="@+id/tab_settings"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/settings"
+                app:layout_constraintTop_toBottomOf="@+id/tab_stats" />
+
+            <TextView
+                android:id="@+id/tab_help"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/help"
+                app:layout_constraintTop_toBottomOf="@+id/tab_settings" />
+
+            <ImageView
+                android:contentDescription="@string/logout_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="24dp"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_power"
+                style="@style/PowerIconTint"
+                app:layout_constraintBottom_toBottomOf="@id/logout"
+                app:layout_constraintStart_toStartOf="@+id/logout"
+                app:layout_constraintTop_toTopOf="@id/logout"/>
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="48dp"
+                android:text="@string/logout"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/horizontal_logout_guideline"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontal_tab_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="184dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontal_logout_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="576dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

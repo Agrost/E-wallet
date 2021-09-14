@@ -1,57 +1,89 @@
 package com.example.e_wallet
 
+import android.graphics.Color
 import android.os.Bundle
-import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
+import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentContainerView
 import com.example.e_wallet.databinding.ActivityMainBinding
+import com.example.e_wallet.presentation.DrawerLayoutInteractor
 
-class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : AppCompatActivity(), DrawerLayoutInteractor {
+
+    private lateinit var drawerLayout: DrawerLayout
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        drawerLayout = binding.drawerLayout
+        createDrawerLayout()
         setContentView(binding.root)
+    }
 
-        setSupportActionBar(binding.appBarMain.toolbar)
-
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+    private fun createDrawerLayout() {
+        val toggle = createToggle(binding.navHostFragmentContentMain)
+        drawerLayout.apply {
+            drawerElevation = 0F
+            closeDrawer(GravityCompat.START)
+            setScrimColor(Color.TRANSPARENT)
+            addDrawerListener(toggle)
         }
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        toggle.syncState()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
+    private fun createToggle(content: FragmentContainerView): ActionBarDrawerToggle {
+        return object : ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            null,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        ) {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                super.onDrawerSlide(drawerView, slideOffset)
+                val slideX = drawerView.width * slideOffset
+                //When changing the width of the SideMenu, change the multipliers
+                content.translationX = slideX / 10 * 9
+                content.rotation = slideOffset * -13
+                content.scaleX = 1 - slideOffset / 3
+                content.scaleY = 1 - slideOffset / 3
+            }
+        }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    override fun disableDrawerLayout() {
+        if (this::drawerLayout.isInitialized) {
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        }
+    }
+
+    override fun enableDrawerLayout() {
+        if (this::drawerLayout.isInitialized) {
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        }
+    }
+
+    override fun openDrawerLayout() {
+        drawerLayout.openDrawer(GravityCompat.START)
+    }
+
+    override fun onStop() {
+        drawerLayout.closeDrawer(GravityCompat.START)
+        _binding = null
+        super.onStop()
     }
 }
