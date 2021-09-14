@@ -40,6 +40,10 @@
         <item name="android:background">@color/gray_white</item>
     </style>
 
+    <style name="FragmentBackgroundColor">
+        <item name="android:background">@color/white</item>
+    </style>
+
 
     <style name="CustomCardView" parent="CardView">
         <item name="cardBackgroundColor">@color/gray_white</item>

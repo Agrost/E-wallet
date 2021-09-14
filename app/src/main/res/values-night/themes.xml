@@ -6,7 +6,6 @@
         <!-- Primary brand color. -->
         <item name="android:windowFullscreen">true</item>
         <item name="colorPrimary">@color/orange</item>
-        <item name="android:background">#171822</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
@@ -18,7 +17,7 @@
     </style>
 
     <style name="AvatarBackgroundTint">
-        <item name="android:tint">@color/avatar_background_black</item>
+        <item name="android:tint">@color/fragment_background_black</item>
     </style>
 
     <style name="TitleTextColor">
@@ -35,6 +34,10 @@
 
     <style name="NavHeaderBackgroundColor">
         <item name="android:backgroundTint">@color/header_black</item>
+    </style>
+
+    <style name="FragmentBackgroundColor">
+        <item name="android:background">@color/fragment_background_black</item>
     </style>
 
     <style name="ThemeBackgroundColor">
