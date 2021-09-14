@@ -55,4 +55,6 @@
     <string name="side_image">side image</string>
     <string name="weather_icon">weather icon</string>
     <string name="mock_temperature">34° C</string>
+    <string name="avatar_background">avatar background</string>
+    <string name="avatar">avatar</string>
 </resources>
