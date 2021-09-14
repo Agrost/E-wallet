@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="84dp"
+    android:layout_height="96dp"
+    android:layout_margin="10dp"
+    style="@style/CustomCardView"
+    app:layout_constraintEnd_toStartOf="@id/right_vertical_guideline"
+    app:layout_constraintStart_toStartOf="@+id/left_vertical_guideline"
+    app:layout_constraintTop_toBottomOf="@id/account_overview">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:background="@color/transparent"
+            android:id="@+id/ellipse"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_avatar_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/AvatarBackgroundTint"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/avatar_background" />
+
+        <ImageView
+            android:background="@color/transparent"
+            android:id="@+id/person_avatar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_avatar_1"
+            app:layout_constraintBottom_toBottomOf="@id/ellipse"
+            app:layout_constraintEnd_toEndOf="@+id/ellipse"
+            app:layout_constraintStart_toStartOf="@id/ellipse"
+            app:layout_constraintTop_toTopOf="@+id/ellipse"
+            android:contentDescription="@string/avatar" />
+
+        <TextView
+            android:background="@color/transparent"
+            android:id="@+id/person_name"
+            style="@style/TitleTextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="Mike"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ellipse" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
