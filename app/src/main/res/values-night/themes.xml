@@ -16,10 +16,6 @@
         <item name="buttonStyle">@style/roundedButtonStyle</item>
     </style>
 
-    <style name="AvatarBackgroundTint">
-        <item name="android:tint">@color/fragment_background_black</item>
-    </style>
-
     <style name="TitleTextColor">
         <item name="android:textColor">@color/gray</item>
     </style>
@@ -34,10 +30,6 @@
 
     <style name="NavHeaderBackgroundColor">
         <item name="android:backgroundTint">@color/header_black</item>
-    </style>
-
-    <style name="FragmentBackgroundColor">
-        <item name="android:background">@color/fragment_background_black</item>
     </style>
 
     <style name="ThemeBackgroundColor">

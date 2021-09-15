@@ -16,10 +16,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="AvatarBackgroundTint">
-        <item name="android:tint">@color/white</item>
-    </style>
-
     <style name="TitleTextColor">
         <item name="android:textColor">@color/dark_blue</item>
     </style>
@@ -39,11 +35,6 @@
     <style name="ThemeBackgroundColor">
         <item name="android:background">@color/gray_white</item>
     </style>
-
-    <style name="FragmentBackgroundColor">
-        <item name="android:background">@color/white</item>
-    </style>
-
 
     <style name="CustomCardView" parent="CardView">
         <item name="cardBackgroundColor">@color/gray_white</item>

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentContainerView
@@ -48,6 +50,18 @@ class MainActivity : AppCompatActivity(), DrawerLayoutInteractor {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
                 super.onDrawerSlide(drawerView, slideOffset)
                 val slideX = drawerView.width * slideOffset
+                content.background = AppCompatResources.getDrawable(
+                    applicationContext,
+                    R.drawable.custom_rectangle
+                )
+                if (slideOffset == 0F) {
+                    content.setBackgroundColor(
+                        ContextCompat.getColor(
+                            applicationContext,
+                            R.color.fragment_background
+                        )
+                    )
+                }
                 //When changing the width of the SideMenu, change the multipliers
                 content.translationX = slideX / 10 * 9
                 content.rotation = slideOffset * -13
