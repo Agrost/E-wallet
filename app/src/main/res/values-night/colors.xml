@@ -13,5 +13,5 @@
     <color name="orange">#FFAC30</color>
     <color name="header_background">@color/header_black</color>
     <color name="icon_with_text">@color/gray</color>
-    <color name="power_icon">@color/black</color>
+    <color name="power_icon">@color/white</color>
 </resources>
