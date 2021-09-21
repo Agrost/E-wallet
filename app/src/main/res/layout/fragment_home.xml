@@ -31,16 +31,17 @@
 
     <ImageView
         android:id="@+id/menu"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:paddingHorizontal="8dp"
+        android:padding="8dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/menu"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_menu"
         app:layout_constraintEnd_toEndOf="@id/right_vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/horizontal_header_guideline"
-        app:tint="@color/icon_with_text" />
+        app:layout_constraintTop_toTopOf="@id/logo"
+        app:layout_constraintBottom_toBottomOf="@id/logo"/>
 
     <TextView
         android:id="@+id/account_overview"
@@ -89,7 +90,6 @@
                 android:contentDescription="@string/add_balance"
                 android:elevation="0dp"
                 android:src="@drawable/ic_plus"
-                app:backgroundTint="@color/orange"
                 app:fabSize="mini"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -133,8 +133,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_scan_qr"
         app:layout_constraintEnd_toEndOf="@id/right_vertical_guideline"
-        app:layout_constraintTop_toTopOf="@id/horizontal_accounts_guideline"
-        app:tint="@color/icon_with_text" />
+        app:layout_constraintTop_toTopOf="@id/horizontal_accounts_guideline" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -144,7 +143,6 @@
         android:contentDescription="@string/add_person"
         android:elevation="0dp"
         android:src="@drawable/ic_plus"
-        app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@id/horizontal_services_guideline"
         app:layout_constraintStart_toStartOf="@id/left_vertical_guideline"
         app:layout_constraintTop_toBottomOf="@id/horizontal_accounts_guideline"
@@ -186,8 +184,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_services_button"
         app:layout_constraintEnd_toEndOf="@id/right_vertical_guideline"
-        app:layout_constraintTop_toTopOf="@id/horizontal_services_guideline"
-        app:tint="@color/icon_with_text" />
+        app:layout_constraintTop_toTopOf="@id/horizontal_services_guideline" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/send_money_btn"
@@ -206,8 +203,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/money_icon"
-            android:src="@drawable/ic_money"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_money" />
 
     </androidx.cardview.widget.CardView>
 
@@ -239,8 +235,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/money_icon"
-            android:src="@drawable/ic_money"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_money" />
 
     </androidx.cardview.widget.CardView>
 
@@ -272,8 +267,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/phone_icon"
-            android:src="@drawable/ic_phone"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_phone" />
 
     </androidx.cardview.widget.CardView>
 
@@ -305,8 +299,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/electricity_icon"
-            android:src="@drawable/ic_electricity"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_electricity" />
 
     </androidx.cardview.widget.CardView>
 
@@ -340,8 +333,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/cashback_icon"
-            android:src="@drawable/ic_cashback"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_cashback" />
 
     </androidx.cardview.widget.CardView>
 
@@ -354,7 +346,6 @@
         android:textColor="@color/gray"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="@id/cashback_offer_btn"
-        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="@+id/cashback_offer_btn"
         app:layout_constraintTop_toBottomOf="@id/cashback_offer_btn" />
 
@@ -374,8 +365,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/movie_icon"
-            android:src="@drawable/ic_movie"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_movie" />
 
     </androidx.cardview.widget.CardView>
 
@@ -407,8 +397,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/plane_icon"
-            android:src="@drawable/ic_plane"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_plane" />
 
     </androidx.cardview.widget.CardView>
 
@@ -440,8 +429,7 @@
             android:layout_gravity="center"
             android:background="@color/transparent"
             android:contentDescription="@string/options_icon"
-            android:src="@drawable/ic_options"
-            app:tint="@color/icon_with_text" />
+            android:src="@drawable/ic_options" />
 
     </androidx.cardview.widget.CardView>
 

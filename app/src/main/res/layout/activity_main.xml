@@ -31,85 +31,16 @@
         app:headerLayout="@layout/nav_header_main">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/nav_view_tabs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/transparent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="200dp"
-                android:layout_height="104dp"
-                android:background="@drawable/rounded_corners"
-                android:backgroundTint="@color/header_background"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                app:cardBackgroundColor="@color/transparent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/avatar_background"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:background="@color/transparent"
-                    android:contentDescription="@string/nav_header_desc"
-                    android:src="@drawable/ic_avatar_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <ImageView
-                    android:id="@+id/person"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:contentDescription="@string/nav_header_desc"
-                    android:src="@drawable/ic_avatar_3"
-                    app:layout_constraintBottom_toBottomOf="@+id/avatar_background"
-                    app:layout_constraintEnd_toEndOf="@+id/avatar_background"
-                    app:layout_constraintStart_toStartOf="@+id/avatar_background"
-                    app:layout_constraintTop_toTopOf="@+id/avatar_background" />
-
-                <TextView
-                    android:id="@+id/person_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="@color/transparent"
-                    android:text="@string/name"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/avatar_background"
-                    app:layout_constraintTop_toTopOf="@id/avatar_background" />
-
-                <TextView
-                    android:id="@+id/person_city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="@color/transparent"
-                    android:paddingTop="@dimen/nav_header_vertical_spacing"
-                    android:text="@string/city"
-                    android:textColor="@color/gray"
-                    android:textSize="11sp"
-                    app:layout_constraintStart_toEndOf="@id/avatar_background"
-                    app:layout_constraintTop_toBottomOf="@id/person_name" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/selected_tab"
-                android:src="@drawable/ic_selected_tab"
-                app:layout_constraintBottom_toBottomOf="@id/tab_home"
-                app:layout_constraintStart_toStartOf="@+id/tab_home"
-                app:layout_constraintTop_toTopOf="@id/tab_home" />
 
             <TextView
                 android:id="@+id/tab_home"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:background="?attr/selectableItemBackground"
+                android:background="@drawable/selected_tab_bg"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_vertical"
@@ -176,7 +107,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginTop="12dp"
-                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_vertical"
@@ -240,6 +170,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     </com.google.android.material.navigation.NavigationView>

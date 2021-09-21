@@ -91,7 +91,6 @@
         style="@style/roundedButtonStyle"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:backgroundTint="@color/orange"
         android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textColor="@color/black"
